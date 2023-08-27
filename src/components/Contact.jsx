@@ -2,7 +2,9 @@ import React from 'react'
 
 function Contact() {
   return (
-    <h1>Contact</h1>
+    <div className='flex h-screen'>
+      Contact
+    </div>
   )
 }
 

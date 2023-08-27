@@ -2,7 +2,9 @@ import React from 'react'
 
 function Works() {
   return (
-    <h1>Works</h1>
+    <div className='flex h-screen'>
+      Works
+    </div>
   )
 }
 
