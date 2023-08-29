@@ -1,0 +1,59 @@
+import React, { useState } from 'react'
+import ReactPaginate from 'react-paginate'
+import { cards } from './data'
+import Cards from './Cards'
+import Modals from './Modals'
+
+const Works = () => {
+
+  const perPage = 4;
+
+  const pageCount = Math.ceil(cards.length / perPage);
+  const [current, setCurrent] =useState(0);
+
+  const handlePageChange = ({ selected }) => {
+    setCurrent(selected);
+  }
+
+  const display = cards.slice(
+    current * perPage,
+    (current + 1) * perPage
+  );
+
+  return (
+    <div>
+
+      <div className='flex justify-center py-6 pb-12'>
+        <h2 className='text-4xl text-white font-bold'>My Works</h2>
+      </div>
+
+      <div className="screen-minus-60 grid place-items-center">
+
+        <div className="flex flex-row gap-8">
+          {display.map((card, index) => (
+            <Cards key={index} {...card} />
+          ))}
+        </div>
+      </div>
+
+      <div>
+        <ReactPaginate
+            previousLabel={'← Previous'}
+            nextLabel={'Next →'}
+            pageCount={pageCount}
+            onPageChange={handlePageChange}
+            containerClassName={'flex justify-center mt-10 pb-4 pt-8'}
+            pageLinkClassName={'mx-2 px-3 py-2 rounded-lg bg-slate-100 text-gray-700'}
+            previousLinkClassName={'mx-2 px-3 py-2 rounded-lg bg-slate-100 text-gray-700'}
+            nextLinkClassName={'mx-2 px-3 py-2 rounded-lg bg-slate-100 text-gray-700'}
+            activeLinkClassName={'text-pink-600'}
+            disabledLinkClassName={'opacity-50 cursor-not-allowed'}
+            />
+      </div>
+
+      
+    </div>
+  )
+}
+
+export default Works

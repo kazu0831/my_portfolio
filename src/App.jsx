@@ -1,16 +1,16 @@
 import './App.css'
 import { NavBar } from './components/Common/NavBar'
 import { Route, Routes } from 'react-router-dom'
-import Home from './components/Top/Home'
-import Works from './components/Works'
 import Blog from './components/Blog'
 import Contact from './components/Contact'
+import Home from './components/Top_page/Home'
+import Works from './components/Works_page/Works'
 
 function App() {
 
   return (
     <>
-      <div className='bg-gradient-to-r from-blue-500 to-purple-500'>
+      <div>
 
           <NavBar />
 

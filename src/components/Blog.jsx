@@ -2,7 +2,7 @@ import React from 'react'
 
 function Blog() {
   return (
-    <div className='flex h-screen'>
+    <div className='flex'>
       Blog
     </div>
   )

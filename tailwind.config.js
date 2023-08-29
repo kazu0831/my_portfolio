@@ -5,7 +5,11 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      spacing:{
+        'screen-minus-60': 'calc(100vh - 60px)'
+      },
+    },
   },
   plugins: [],
 }
