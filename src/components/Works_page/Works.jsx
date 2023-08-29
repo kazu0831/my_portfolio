@@ -1,10 +1,23 @@
 import React, { useState } from 'react'
 import ReactPaginate from 'react-paginate'
+import { FaLink } from 'react-icons/fa'
 import { cards } from './data'
 import Cards from './Cards'
 import Modals from './Modals'
 
 const Works = () => {
+
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCard, setSelectedCard] = useState(null);
+
+  const handleCardClick = (card) =>{
+    setShowModal(true)
+    setSelectedCard(card)
+  };
+
+  const handleModalClose = () =>{
+    setShowModal(false)
+  };
 
   const perPage = 4;
 
@@ -31,10 +44,28 @@ const Works = () => {
 
         <div className="flex flex-row gap-8">
           {display.map((card, index) => (
-            <Cards key={index} {...card} />
+            <Cards key={index} image={card.image} title={card.title} description={card.description} tags={card.tags} onCardClick={() =>handleCardClick(card)}/>
           ))}
         </div>
       </div>
+
+      <Modals 
+        open={showModal} 
+        onClose={handleModalClose}
+        image={selectedCard?.image} 
+        description={selectedCard?.description}
+      >
+        <p>{selectedCard?.description}</p>
+        <a 
+          href={selectedCard?.link} 
+          target='_blank' 
+          rel="noreferrer noopener" 
+          className='font-medium text-blue-600 dark:text-blue-500 hover:underline flex items-center gap-1 py-4'
+        >
+          <FaLink className='text-xs' />
+          <span>{selectedCard?.title}</span>
+        </a>
+      </Modals>
 
       <div>
         <ReactPaginate

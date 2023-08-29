@@ -1,19 +1,16 @@
-import React, { useState } from 'react'
-import Modals from './Modals';
+import React from 'react'
 
-const Cards = ({image, title, description, tags}) =>{
+const Cards = ({image, title, description, tags, onCardClick}) =>{
 
-    const [showModal, setShowModal] = useState(false);
-
-    const maxLength = 30;
-    const restrictDescription = description.length > maxLength
+    const maxLength = 12;
+    const restrictDescription =description.length > maxLength
     ? description.slice(0, maxLength) + '...' 
     : description;
 
   return (
     <div
         className='max-w-sm rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80'
-        onClick={() => setShowModal(true)}
+        onClick={onCardClick}
     >
 
         <img src={image} alt={title} className='w-full aspect-square object-cover' />
@@ -31,11 +28,6 @@ const Cards = ({image, title, description, tags}) =>{
                 </span>
             ))}
         </div>
-
-        <Modals open={showModal} onClose={() => setShowModal(false)}>
-            <img src={image} alt={title} />
-            <h2 className='text-xl font-bold mb-2'>{title}</h2>
-        </Modals>
 
     </div>
   )

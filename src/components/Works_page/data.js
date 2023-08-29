@@ -2,8 +2,9 @@ export const cards = [
     {
       image: './vite.svg',
       title: 'Card demo Title 1',
-      description: 'This is the description for card 1.',
+      description: 'わたしが初めて作った作品です。ReactとTailwindCssを利用しています',
       tags: ['Tag1', 'Tag2', 'Tag3'],
+      link: 'https://www.google.com/?hl=ja'
     },
     {
       image: './vite.svg',
