@@ -9,7 +9,7 @@ const Cards = ({image, title, description, tags, onCardClick}) =>{
 
   return (
     <div
-        className='max-w-sm rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80'
+        className='h-[58vh] w-[20vw] max-h-[58vh] max-w-[20vw] rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80'
         onClick={onCardClick}
     >
 
