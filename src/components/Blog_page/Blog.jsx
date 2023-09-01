@@ -1,16 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import Cards from './Cards';
 import ReactPaginate from 'react-paginate';
 
 const Blog = () => {
   const [articles, setArticles] = useState([]);
-  const n = useNavigate();
-
-  const handleCardClick = (id) =>{
-    n(`/blog/${id}`)
-  }
 
   const perPage = 4;
 
@@ -57,14 +51,19 @@ const Blog = () => {
       <div className='screen-minus-60 grid place-items-center'>
         <div className='flex gap-8'>
           {display.map((article)=>(
-            <Cards 
+            <a
               key={article.id} 
-              image={article.user.profile_image_url}
-              title={article.title}
-              date={article.created_at}
-              tags={article.tags}
-              onCardClick={() => handleCardClick(article.id)}
-            />
+              href={article.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Cards 
+                image={article.user.profile_image_url}
+                title={article.title}
+                date={article.created_at}
+                tags={article.tags}
+              />
+            </a>
           ))}
         </div>
       </div>
