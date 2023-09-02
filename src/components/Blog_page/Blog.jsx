@@ -21,9 +21,8 @@ const Blog = () => {
     (current + 1) * perPage
   );
 
-  //後でenvファイル作成
-  const url = 'https://qiita.com/api/v2/authenticated_user/items'
-  const token = '7677851b2554ab0835610c87c597508add7389ad'
+  const url = import.meta.env.VITE_QIITA_API_URL
+  const token = import.meta.env.VITE_QIITA_API_TOKEN
 
   useEffect(() =>{
 

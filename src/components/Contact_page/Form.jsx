@@ -23,8 +23,7 @@ export const Form = () => {
       return;
     }
 
-    //env
-    emailjs.sendForm('service_o6xd9op', 'template_nsgtkkf', form.current, 'e3Xbd-EiG04SqQ9f4')
+    emailjs.sendForm(import.meta.env.VITE_EMAIL_SERVICE_ID, import.meta.env.VITE_EMAIL_TEMPLATE_ID , form.current, import.meta.env.VITE_EMAIL_USER_ID)
       .then((result) => {
         if (result.status === 200) {
             setMessage('送信しました。');
