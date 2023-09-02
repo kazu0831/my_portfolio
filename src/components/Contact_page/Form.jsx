@@ -1,17 +1,37 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 export const Form = () => {
   const form = useRef();
+  const [message,setMessage] = useState(null)
 
   const sendEmail = (e) => {
     e.preventDefault();
 
+    const name = e.target.user_name.value
+    const email = e.target.user_email.value
+    const messageText = e.target.message.value
+
+    if (!name || !email || !messageText) {
+        setMessage('全てのフィールドを入力してください。');
+        return;
+    }
+
+    const validate = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email.match(validate)) {
+      setMessage('有効なメールアドレスを入力してください。');
+      return;
+    }
+
+    //env
     emailjs.sendForm('service_o6xd9op', 'template_nsgtkkf', form.current, 'e3Xbd-EiG04SqQ9f4')
       .then((result) => {
-          console.log(result.text);
+        if (result.status === 200) {
+            setMessage('送信しました。');
+            form.current.reset();
+          }
       }, (error) => {
-          console.log(error.text);
+            setMessage('エラーが発生しました。');
       });
   };
 
@@ -30,6 +50,7 @@ export const Form = () => {
             <textarea name="message" className="w-full px-4 py-2 border rounded-md focus:outline-none focus:border-blue-500"></textarea>
         </div>
         <input type="submit" value="Send" className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded w-full" />
+        {message && <p className="text-red-500 mt-2">{message}</p>}
     </form>
   );
 };

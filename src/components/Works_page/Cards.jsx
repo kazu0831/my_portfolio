@@ -1,4 +1,5 @@
 import React from 'react'
+import MediaQuery from 'react-responsive'
 
 const Cards = ({image, title, description, tags, onCardClick}) =>{
 
@@ -8,28 +9,57 @@ const Cards = ({image, title, description, tags, onCardClick}) =>{
     : description;
 
   return (
-    <div
-        className='h-[58vh] w-[20vw] max-h-[58vh] max-w-[20vw] rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80'
-        onClick={onCardClick}
-    >
+    <>
+        <MediaQuery query='(min-width:769px)'>
+            <div
+            className='h-[58vh] w-[20vw] max-h-[58vh] max-w-[20vw] rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80'
+            onClick={onCardClick}
+            >
 
-        <img src={image} alt={title} className='w-full aspect-square object-cover' />
+                <img src={image} alt={title} className='w-full aspect-square object-cover' />
 
-        <h2 className='font-bold text-lg px-4'>{title}</h2>
+                <h2 className='font-bold text-lg px-4'>{title}</h2>
 
-        <p className='px-4 py-2'>
-            {restrictDescription}
-        </p>
+                <p className='px-4 py-2'>
+                    {restrictDescription}
+                </p>
 
-        <div className='flex justify-end px-2 py-2'>
-            {tags.map((tag,index)=>(
-                <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
-                        #{tag}
-                </span>
-            ))}
-        </div>
+                <div className='flex justify-end px-2 py-2'>
+                    {tags.map((tag,index)=>(
+                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                                #{tag}
+                        </span>
+                    ))}
+                </div>
 
-    </div>
+            </div>
+        </MediaQuery>
+
+        <MediaQuery query='(max-width:768px)'>
+            <div
+            className='h-[58vh] w-[85vw] max-h-[58vh] max-w-[85vw] rounded overflow-hidden shadow-lg cursor-pointer bg-slate-100 shadow-slate-100/50 hover:opacity-80 mb-20'
+            onClick={onCardClick}
+            >
+
+                <img src={image} alt={title} className='w-full aspect-square object-cover' />
+
+                <h2 className='font-bold text-lg px-4'>{title}</h2>
+
+                <p className='px-4 py-2'>
+                    {restrictDescription}
+                </p>
+
+                <div className='flex justify-end px-2 py-2'>
+                    {tags.map((tag,index)=>(
+                        <span key={index} className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
+                                #{tag}
+                        </span>
+                    ))}
+                </div>
+
+            </div>
+        </MediaQuery>
+    </>
   )
 }
 
