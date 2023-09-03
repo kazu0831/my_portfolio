@@ -16,9 +16,9 @@ function App() {
 
           <Routes>
             <Route exact path='/my_portfolio' element={<Home />} />
-            <Route path='/works' element={<Works />} />
-            <Route path='/blog' element={<Blog />} />
-            <Route path='/contact' element={<Contact />} />
+            <Route path='/my_portfolio/works' element={<Works />} />
+            <Route path='/my_portfolio/blog' element={<Blog />} />
+            <Route path='/my_portfolio/contact' element={<Contact />} />
           </Routes>
       </div>
     </>

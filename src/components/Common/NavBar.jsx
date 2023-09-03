@@ -12,19 +12,19 @@ export const NavBar= () => {
             <span className='text-white py-4'>|</span>
 
             <li className='py-4 px-4'>
-                <Link className='text-white text-lg font-bold hover:opacity-60'to="/works">Works</Link>
+                <Link className='text-white text-lg font-bold hover:opacity-60'to="/my_portfolio/works">Works</Link>
             </li>
 
             <span className='text-white py-4'>|</span>
 
             <li className='py-4 px-4'>
-                <Link className='text-white text-lg font-bold hover:opacity-60' to="/blog">Blog</Link>
+                <Link className='text-white text-lg font-bold hover:opacity-60' to="/my_portfolio/blog">Blog</Link>
             </li>
 
             <span className='text-white py-4'>|</span>
             
             <li className='py-4 px-4'>
-                <Link className='text-white text-lg font-bold hover:opacity-60' to="/contact">Contact</Link>
+                <Link className='text-white text-lg font-bold hover:opacity-60' to="/my_portfolio/contact">Contact</Link>
             </li>
         </ul>
     </nav>
