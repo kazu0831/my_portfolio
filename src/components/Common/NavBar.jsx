@@ -6,7 +6,7 @@ export const NavBar= () => {
     <nav>
         <ul className='flex justify-center'>
             <li className='py-4 px-4'>
-                <Link className='text-white text-lg font-bold hover:opacity-60' to="/">Home</Link>
+                <Link className='text-white text-lg font-bold hover:opacity-60' to="/my_portfolio">Home</Link>
             </li>
 
             <span className='text-white py-4'>|</span>
