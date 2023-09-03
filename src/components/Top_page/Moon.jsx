@@ -5,7 +5,7 @@ import { useGLTF } from '@react-three/drei';
 const Moon = () => {
 
     const ref = useRef()
-    const gltf = useGLTF('../src/assets/models/scene.gltf');
+    const gltf = useGLTF('./scene.gltf');
 
     useFrame(()=>{
         ref.current.rotation.x += 0.005;
